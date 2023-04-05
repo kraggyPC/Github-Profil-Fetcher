@@ -1,35 +1,17 @@
 import React from "react";
 import { RouterProvider, Outlet, createBrowserRouter } from "react-router-dom";
 import ReactDOM from "react-dom/client";
-import Footer from "./Footer";
-import Header from "./Header";
-import SearchBar from "./SearchBar";
-
+import Navbar from "./components/Navbar";
+import Hero from "./components/Hero";
 const App = () => {
   return (
     <>
-      <Header />
-      <Outlet />
-      <Footer />
+      <Navbar />
+      <Hero />
     </>
   );
 };
-const appRouter = createBrowserRouter([
-  {
-    path: "/",
-    element: <App />,
-    children: [
-      {
-        path: "/about",
-        // element: <About />,
-      },
-      {
-        path: "/",
-        element: <SearchBar />,
-      },
-    ],
-  },
-]);
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<RouterProvider router={appRouter} />);
+root.render(<App />);
 export default App;
